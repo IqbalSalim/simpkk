@@ -52,7 +52,7 @@
                     <x-nav-link :href="route('profil')" :active="request()->routeIs('profil')">
                         {{ __('Profil') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('warta-kegiatan')" :active="request()->routeIs('warta-kegiatan')">
+                    <x-nav-link :href="route('warta')" :active="request()->routeIs('warta')">
                         {{ __('Warta Kegiatan') }}
                     </x-nav-link>
                     <x-nav-link :href="route('jadwal-kegiatan')" :active="request()->routeIs('jadwal-kegiatan')">
@@ -90,7 +90,7 @@
             <x-nav-link :href="route('profil')" :active="request()->routeIs('profil')">
                 {{ __('Profil') }}
             </x-nav-link>
-            <x-nav-link :href="route('warta-kegiatan')" :active="request()->routeIs('warta-kegiatan')">
+            <x-nav-link :href="route('warta')" :active="request()->routeIs('warta')">
                 {{ __('Warta Kegiatan') }}
             </x-nav-link>
             <x-nav-link :href="route('jadwal-kegiatan')" :active="request()->routeIs('jadwal-kegiatan')">

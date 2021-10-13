@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Role;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    // $role = Role::first();
+
+    // $role->givePermissionTo('delete user');
+    // dd($role);
     return view('welcome');
 })->name('welcome');
 
@@ -21,12 +28,16 @@ Route::get('/profil', function () {
     return view('profil');
 })->name('profil');
 
-Route::get('/warta-kegiatan', function () {
-    return view('warta_kegiatan');
-})->name('warta-kegiatan');
+Route::get('/warta', function () {
+    return view('warta');
+})->name('warta');
+
+Route::get('/detail-warta', function () {
+    return view('detail_warta');
+})->name('detail-warta');
 
 Route::get('/jadwal-kegiatan', function () {
-    return view('jadwal_kegiatan');
+    return view('jadwal');
 })->name('jadwal-kegiatan');
 
 Route::get('/tentang-kami', function () {
@@ -36,5 +47,17 @@ Route::get('/tentang-kami', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::group(['middleware' => ['permission:show users']], function () {
+    Route::get('/user', function () {
+        return view('user');
+    })->middleware(['auth'])->name('user');
+});
+
+Route::get('/kegiatan', function () {
+    return view('kegiatan');
+})->middleware(['auth'])->name('kegiatan');
+
+
 
 require __DIR__ . '/auth.php';

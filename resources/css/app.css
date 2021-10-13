@@ -18,7 +18,7 @@
           [multiple],
           textarea,
           select {
-              @apply w-full rounded-lg shadow-sm border-default border-opacity-80 focus:border-primary focus:ring-primary;
+              @apply border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50;
           }
     [type='checkbox'],
     [type='radio'] {
