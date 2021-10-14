@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Kegiatan;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Role;
 
@@ -16,12 +17,11 @@ use Spatie\Permission\Models\Role;
 */
 
 Route::get('/', function () {
-
-    // $role = Role::first();
-
-    // $role->givePermissionTo('delete user');
-    // dd($role);
-    return view('welcome');
+    $kegiatan = Kegiatan::orderBy('tanggal')->offset(1)->limit(4)->get();
+    // dd($kegiatan);
+    return view('welcome', [
+        'kegiatans' => $kegiatan
+    ]);
 })->name('welcome');
 
 Route::get('/profil', function () {
@@ -37,7 +37,10 @@ Route::get('/detail-warta', function () {
 })->name('detail-warta');
 
 Route::get('/jadwal-kegiatan', function () {
-    return view('jadwal');
+    $kegiatan = Kegiatan::orderBy('tanggal')->get();
+    return view('jadwal', [
+        'kegiatans' => $kegiatan
+    ]);
 })->name('jadwal-kegiatan');
 
 Route::get('/tentang-kami', function () {
@@ -57,6 +60,10 @@ Route::group(['middleware' => ['permission:show users']], function () {
 Route::get('/kegiatan', function () {
     return view('kegiatan');
 })->middleware(['auth'])->name('kegiatan');
+
+Route::get('/warta-kegiatan', function () {
+    return view('warta_kegiatan');
+})->middleware(['auth'])->name('warta-kegiatan');
 
 
 

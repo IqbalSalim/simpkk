@@ -25,13 +25,13 @@
                     <x-nav-link :href="route('kegiatan')" :active="request()->routeIs('kegiatan')">
                         {{ __('Kegiatan') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('proker')" :active="request()->routeIs('proker')">
                         {{ __('Program Kerja') }}
                     </x-nav-link>
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dasawisma') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('warta-kegiatan')" :active="request()->routeIs('warta-kegiatan')">
                         {{ __('Warta Kegiatan') }}
                     </x-nav-link>
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
@@ -102,6 +102,12 @@
             @endcan
             <x-responsive-nav-link :href="route('kegiatan')" :active="request()->routeIs('kegiatan')">
                 {{ __('Kegiatan') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('proker')" :active="request()->routeIs('proker')">
+                {{ __('Program Kerja') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('warta-kegiatan')" :active="request()->routeIs('warta-kegiatan')">
+                {{ __('Warta Kegiatan') }}
             </x-responsive-nav-link>
         </div>
 

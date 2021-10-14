@@ -5,7 +5,7 @@
             if ($request->has('q')) {
             $q = request()->q;
             }else {
-            $q='visi-misi';
+            $q='program-kerja';
             }
         @endphp
 
@@ -17,15 +17,11 @@ inactiveClasses: 'opacity-50 hover:opacity-100'}">
             <ul
                 class="flex flex-col items-center w-full px-1 py-2 space-y-2 text-sm font-semibold capitalize border-b-2 border-gray-100 md:items-center md:space-x-6 md:flex-row md:space-y-0 md:text-base text-default">
                 <li class="">
-                    <a href="#visi-misi" x-on:click="selected = 'visi-misi'" :class="
-            selected === 'visi-misi' ? activeClasses : inactiveClasses">visi misi</a>
-                </li>
-                <li class="">
                     <a href="#sejarah-desa" x-on:click="selected = 'program-kerja'" :class="
         selected === 'program-kerja' ? activeClasses : inactiveClasses">program kerja</a>
                 </li>
                 <li class="">
-                    <a href="#gambaran-umum" x-on:click="selected = 'struktur-organisasi'" :class="
+                    <a href="#struktur-organisasi" x-on:click="selected = 'struktur-organisasi'" :class="
         selected === 'struktur-organisasi' ? activeClasses : inactiveClasses">sruktur organisasi</a>
                 </li>
                 <li class="">
@@ -35,49 +31,33 @@ inactiveClasses: 'opacity-50 hover:opacity-100'}">
             </ul>
 
 
-            <div x-show="selected === 'visi-misi'" class="p-4 text-justify align-baseline text-default">
-                <p class="inline pl-8"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, accusamus
-                    magnam.
-                    Dolorem minima ex dolore officia illum incidunt dolor quo repudiandae, commodi veritatis
-                    fugiat non! Quod ex numquam facere id? Lorem ipsum, dolor sit amet consectetur adipisicing
-                    elit. At omnis placeat quaerat, provident aliquid accusantium quam velit facere quasi,
-                    nostrum obcaecati vero doloribus praesentium perspiciatis itaque iure fugiat neque alias.
-                </p>
-                <br>
-                <p class="inline pl-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, accusamus
-                    magnam.
-                    Dolorem minima ex dolore officia illum incidunt dolor quo repudiandae, commodi veritatis
-                    fugiat non! Quod ex numquam facere id? Lorem ipsum, dolor sit amet consectetur adipisicing
-                    elit. At omnis placeat quaerat, provident aliquid accusantium quam velit facere quasi,
-                    nostrum obcaecati vero doloribus praesentium perspiciatis itaque iure fugiat neque alias.
-                </p>
-                <br>
-                <p class="inline pl-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, accusamus
-                    magnam.
-                    Dolorem minima ex dolore officia illum incidunt dolor quo repudiandae, commodi veritatis
-                    fugiat non! Quod ex numquam facere id? Lorem ipsum, dolor sit amet consectetur adipisicing
-                    elit. At omnis placeat quaerat, provident aliquid accusantium quam velit facere quasi,
-                    nostrum obcaecati vero doloribus praesentium perspiciatis itaque iure fugiat neque alias.
-                </p>
-                <br>
-                <p class="inline pl-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, accusamus
-                    magnam.
-                    Dolorem minima ex dolore officia illum incidunt dolor quo repudiandae, commodi veritatis
-                    fugiat non! Quod ex numquam facere id? Lorem ipsum, dolor sit amet consectetur adipisicing
-                    elit. At omnis placeat quaerat, provident aliquid accusantium quam velit facere quasi,
-                    nostrum obcaecati vero doloribus praesentium perspiciatis itaque iure fugiat neque alias.
-                </p>
-            </div>
+
 
             <div x-show="selected === 'program-kerja'" class="p-4">
-                sejarah
+                Program Kerja
             </div>
             <div x-show="selected === 'struktur-organisasi'" class="p-4">
-                gambarab
+                <div>
+                    <img src="{{ asset('images/STRUKTUR.jpeg') }}" alt="">
+                </div>
             </div>
 
             <div x-show="selected === '10program-pokok'" class="p-4">
-                perangkat
+                <div class="flex flex-col items-center justify-center">
+                    <h1 class="text-2xl text-primary">10 Program Pokok PKK</h1>
+                    <ul class="list-decimal text-default">
+                        <li>Penghayatan dan Pengamalan Pancasila</li>
+                        <li>Gotong Royong</li>
+                        <li>Pangan</li>
+                        <li>Sandang</li>
+                        <li>Perumahan dan Tata Laksana Rumah Tangga</li>
+                        <li>Pendidikan dan Ketrampilan</li>
+                        <li>Keseharan</li>
+                        <li>Pengembangan Kehidupan Berkoperasi</li>
+                        <li>Kelestarian Lingkungan Hidup</li>
+                        <li>Perencanaan Sehat</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
