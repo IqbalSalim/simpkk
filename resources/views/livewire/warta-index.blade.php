@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="flex flex-col flex-1 px-4 py-2 overflow-auto h-96">
-                        <div class="flex flex-row items-center space-x-4">
+                        <div class="flex flex-col space-y-4 md:items-center md:flex-row md:space-x-4">
                             <!-- Judul -->
                             <div class="flex-1 mt-4">
                                 <x-label for="judul" :value="__('Judul')" />
@@ -113,7 +113,7 @@
             </div>
         </form>
 
-        @if(session()->has('message'))
+        @if (session()->has('message'))
             <div class="block px-4 py-2 my-2 text-white bg-opacity-50 bg-success rounded-xl">
                 {{ session('message') }}
             </div>
@@ -134,13 +134,13 @@
             </div>
         </div>
         <div class="w-full overflow-x-auto md:overflow-hidden">
-            <div class="grid grid-cols-3 gap-4 py-2">
-                @if($wartas)
-                    @foreach($wartas as $warta)
-                        <div class="relative z-0 flex-col space-y-4 bg-white shadow-xl rounded-xl">
-                            @if(Storage::disk('public')->exists($warta->gambar))
+            <div class="grid grid-cols-1 gap-4 py-2 md:grid-cols-2 lg:grid-cols-3">
+                @if ($wartas)
+                    @foreach ($wartas as $warta)
+                        <div class="relative z-0 flex-col space-y-4 bg-white shadow-2xl rounded-xl">
+                            @if (Storage::disk('public')->exists($warta->gambar))
                                 <img class="object-cover w-full h-60 rounded-t-xl"
-                                    src="{{ asset('storage/'.$warta->gambar) }}" alt="">
+                                    src="{{ asset('storage/' . $warta->gambar) }}" alt="">
                             @else
                                 <img class="object-cover w-full h-60 rounded-t-xl"
                                     src="{{ asset('storage/images/no-image.png') }}" alt="">
@@ -149,7 +149,7 @@
                                 <h1 class="text-lg font-medium text-primary line-clamp-2">{{ $warta->judul }}</h1>
                                 <p class="text-gray-700 line-clamp-3">{{ $warta->isi }}</p>
                                 <span class="text-sm text-default">
-                                    {{ date('d M Y', strtotime($warta->created_at)); }}
+                                    {{ date('d M Y', strtotime($warta->created_at)) }}
                                 </span>
                             </div>
                             <div
@@ -192,7 +192,7 @@
 
                 <div class="flex flex-col flex-1 px-4 py-2 overflow-auto h-96">
                     <input type="hidden" wire:model="warta_id">
-                    <div class="flex flex-row items-center space-x-4">
+                    <div class="flex flex-col space-y-4 md:flex-row md:items-center md:space-x-4">
                         <!-- Judul -->
                         <div class="flex-1 mt-4">
                             <x-label for="warta_judul" :value="__('Judul')" />

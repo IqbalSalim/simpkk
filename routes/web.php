@@ -61,6 +61,14 @@ Route::get('/kegiatan', function () {
     return view('kegiatan');
 })->middleware(['auth'])->name('kegiatan');
 
+Route::get('/proker', function () {
+    return view('proker');
+})->middleware(['auth'])->name('proker');
+
+Route::get('/dasawisma', function () {
+    return view('dasawisma');
+})->middleware(['auth'])->name('dasawisma');
+
 Route::get('/warta-kegiatan', function () {
     return view('warta_kegiatan');
 })->middleware(['auth'])->name('warta-kegiatan');

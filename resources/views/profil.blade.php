@@ -52,7 +52,7 @@ inactiveClasses: 'opacity-50 hover:opacity-100'}">
                         <li>Sandang</li>
                         <li>Perumahan dan Tata Laksana Rumah Tangga</li>
                         <li>Pendidikan dan Ketrampilan</li>
-                        <li>Keseharan</li>
+                        <li>Kesehatan</li>
                         <li>Pengembangan Kehidupan Berkoperasi</li>
                         <li>Kelestarian Lingkungan Hidup</li>
                         <li>Perencanaan Sehat</li>

@@ -13,7 +13,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 md:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 md:-my-px sm:ml-10 sm:flex md:flex-row md:items-center">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
@@ -28,7 +28,7 @@
                     <x-nav-link :href="route('proker')" :active="request()->routeIs('proker')">
                         {{ __('Program Kerja') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('dasawisma')" :active="request()->routeIs('dasawisma')">
                         {{ __('Dasawisma') }}
                     </x-nav-link>
                     <x-nav-link :href="route('warta-kegiatan')" :active="request()->routeIs('warta-kegiatan')">
@@ -81,8 +81,8 @@
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex"
                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
@@ -91,7 +91,7 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
+        <div class="flex flex-col items-start pt-2 pb-3 space-y-2 ">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
@@ -105,6 +105,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('proker')" :active="request()->routeIs('proker')">
                 {{ __('Program Kerja') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dasawisma')" :active="request()->routeIs('dasawisma')">
+                {{ __('Dasawisma') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('warta-kegiatan')" :active="request()->routeIs('warta-kegiatan')">
                 {{ __('Warta Kegiatan') }}

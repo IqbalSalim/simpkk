@@ -16,12 +16,12 @@
         <!-- Dialog (full screen) -->
         <form wire:submit.prevent='store' novalidate>
             @csrf
-            <div class="fixed inset-0 flex justify-center w-full py-8 bg-black bg-opacity-40" x-show="modal">
+            <div class="fixed inset-0 z-50 flex justify-center w-full py-8 bg-black bg-opacity-40" x-show="modal">
 
                 <!-- A basic modal dialog with title, body and one button to close -->
 
                 <div @click.away="modal = false" x-show="modal" x-transition.duration.500
-                    class="flex flex-col w-6/12 h-auto p-4 mx-2 text-left bg-white divide-y-2 divide-gray-300 rounded shadow-xl">
+                    class="flex flex-col w-11/12 h-auto p-4 mx-2 text-left bg-white divide-y-2 divide-gray-300 rounded shadow-xl md:10/12 lg:w-6/12">
 
 
                     <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
@@ -46,7 +46,7 @@
                                 class="block w-full mt-1 capitalize border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50'"
                                 name="role" id="role" wire:model="role">
                                 <option>select role</option>
-                                @foreach($roles as $rolefor)
+                                @foreach ($roles as $rolefor)
                                     <option value="{{ $rolefor->name }}">{{ $rolefor->name }}</option>
                                 @endforeach
                             </select>
@@ -124,7 +124,7 @@
             </div>
         </form>
 
-        @if(session()->has('message'))
+        @if (session()->has('message'))
             <div class="block px-4 py-2 text-white bg-opacity-50 bg-success rounded-xl">
                 {{ session('message') }}
             </div>
@@ -172,10 +172,10 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach($users as $key => $user)
+                    @foreach ($users as $key => $user)
                         <tr>
                             <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
-                                {{ $key +1 }}
+                                {{ $key + 1 }}
                             </td>
                             <td class="px-2 py-4 md:px-6">
                                 <div class="flex flex-row space-x-2">
@@ -191,7 +191,7 @@
                             <td class="px-2 py-4 text-sm text-left md:px-6 text-defaul">
                                 {{ $user->created_at }}</td>
                             <td class="px-2 md:px-6">
-                                @if(!empty($user->roles[0]->name))
+                                @if (!empty($user->roles[0]->name))
                                     <span
                                         class="px-2 text-sm text-white bg-opacity-50 rounded-full bg-primary">{{ $user->roles[0]->name }}
                                     </span>
@@ -217,12 +217,12 @@
     {{-- Modal Edit --}}
     <form wire:submit.prevent='update' novalidate>
         @csrf
-        <div class="fixed inset-0 flex justify-center w-full py-8 bg-black bg-opacity-40" x-show="modalEdit">
+        <div class="fixed inset-0 z-50 flex justify-center w-full py-8 bg-black bg-opacity-40" x-show="modalEdit">
 
             <!-- A basic modal dialog with title, body and one button to close -->
 
             <div @click.away="modalEdit = false" x-show="modalEdit" x-transition.duration.500
-                class="flex flex-col w-6/12 h-auto p-4 mx-2 text-left bg-white divide-y-2 divide-gray-300 rounded shadow-xl">
+                class="flex flex-col w-11/12 h-auto p-4 mx-2 text-left bg-white divide-y-2 divide-gray-300 rounded shadow-xl md:w-10/12 lg:w-6/12">
 
 
                 <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
@@ -247,7 +247,7 @@
                             class="block w-full mt-1 capitalize border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50'"
                             name="user_role" id="user_role" wire:model="user_role">
                             <option value="">select role</option>
-                            @foreach($roles as $rolefor)
+                            @foreach ($roles as $rolefor)
                                 <option value="{{ $rolefor->name }}">{{ $rolefor->name }}</option>
                             @endforeach
                         </select>
