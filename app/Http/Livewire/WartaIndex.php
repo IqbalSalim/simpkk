@@ -17,6 +17,7 @@ class WartaIndex extends Component
     public $paginate = 6, $search;
     protected $queryString = ['search'];
 
+
     public function render()
     {
         return view('livewire.warta-index', [

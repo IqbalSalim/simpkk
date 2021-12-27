@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/app.css" rel="stylesheet">
-    <script src="/js/app.js" defer></script>
+    <script src="js/app.js" defer></script>
 
 
     <!-- Fonts -->
@@ -63,7 +63,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden md:flex">
-                    @if(Route::has('login'))
+                    @if (Route::has('login'))
                         <div class="flex-row hidden space-x-4 sm:flex">
                             @auth
                                 <a href="{{ url('/dashboard') }}"
@@ -72,11 +72,10 @@
                                 <a href="{{ route('login') }}" class="text-sm btn-primary">Log
                                     in</a>
 
-                                {{-- @if(Route::has('register'))
+                                {{-- @if (Route::has('register'))
                                     <a href="{{ route('register') }}"
-                                class="px-4 py-2 text-sm font-medium capitalize duration-200 transform bg-white rounded-lg bg-opacity-30 focus:ring-secondary focus:ring-opacity-50 focus:outline-none hover:bg-secondary hover:text-white text-secondary ring-2 ring-secondary">Register</a>
-                                --}}
-                            @endif
+                                class="px-4 py-2 text-sm font-medium capitalize duration-200 transform bg-white rounded-lg bg-opacity-30 focus:ring-secondary focus:ring-opacity-50 focus:outline-none hover:bg-secondary hover:text-white text-secondary ring-2 ring-secondary">Register</a> --}}
+                        @endif
                     @endauth
                 </div>
 
@@ -100,13 +99,12 @@
                 {{ __('Tentang Kami') }}
             </x-nav-link>
             <div>
-                @if(Route::has('login'))
+                @if (Route::has('login'))
                     @auth
                         <a href="{{ url('/dashboard') }}"
                             class="block px-4 py-2 font-bold text-white capitalize">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}"
-                            class="block px-4 py-2 font-bold text-white capitalize">Log
+                        <a href="{{ route('login') }}" class="block px-4 py-2 font-bold text-white capitalize">Log
                             in</a>
                     @endif
                 @endauth
@@ -120,7 +118,7 @@
     <div x-intersect:enter="$el.classList.remove('-translate-y-full')"
         x-intersect:leave="$el.classList.add('-translate-y-full')"
         class="flex flex-col items-center pt-40 space-y-4 text-white transition-all duration-1000 transform">
-        <h1 class="text-5xl md:text-6xl text-warning">PKK Donggala</h1>
+        <h1 class="text-5xl md:text-6xl text-warning">PKK Dunggala</h1>
         <p class="px-4 text-xl text-center md:w-1/2 md:px-0">Bersinergi dalam tim untuk membina kesejahteraan
             keluarga.
             Mewujudkan
@@ -143,8 +141,7 @@
         <div class="flex flex-col items-center space-x-4 space-y-4 md:space-y-0 md:flex-row">
             <div class="flex-1 transition duration-1000 transform" x-intersect:enter="$el.classList.remove('opacity-0')"
                 x-intersect:leave="$el.classList.add('opacity-0')">
-                <img src="{{ asset('images/img1.jpg') }}" alt="gambar"
-                    class="object-cover rounded-xl">
+                <img src="{{ asset('images/img1.jpg') }}" alt="gambar" class="object-cover rounded-xl">
             </div>
             <div x-intersect:enter="$el.classList.remove('opacity-0')"
                 x-intersect:leave="$el.classList.add('opacity-0')"
@@ -173,64 +170,27 @@
         </div>
         <div x-intersect:enter="$el.classList.remove('scale-x-0')" x-intersect:leave="$el.classList.add('scale-x-0')"
             class="flex flex-col space-y-4 transition-all duration-1000 transform md:space-y-0 md:flex-row md:space-x-4">
-            <a href="#"
-                class="flex-col space-y-4 duration-200 transform bg-white shadow-xl md:w-1/3 hover:scale-105 rounded-xl">
-                <img class="object-cover w-full h-60 rounded-t-xl"
-                    src="{{ asset('images/warta/news1.jpg') }}" alt="warta">
-                <div class="flex flex-col px-4 py-2 space-y-2">
-                    <h1 class="text-xl font-medium text-primary">Judul Berita</h1>
-                    <p class="text-gray-700 line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Nihil amet cumque
-                        assumenda provident. Hic assumenda praesentium porro repellendus aliquam dolorum blanditiis.
-                        Assumenda velit facilis dicta. Atque eveniet ipsum ratione maxime. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Laudantium asperiores ex perferendis perspiciatis voluptates
-                        eligendi, similique facilis iusto ipsam quas non aliquid impedit nemo, voluptatibus repellat
-                        minima eaque, magni error?</p>
-                    <span class="text-sm text-default">1 jam lalu</span>
-                </div>
-            </a>
-            <a href="#"
-                class="flex-col space-y-4 duration-200 transform bg-white shadow-xl md:w-1/3 hover:scale-105 rounded-xl">
-                <img class="object-cover w-full h-60 rounded-t-xl"
-                    src="{{ asset('images/warta/news2.jpg') }}" alt="warta">
-                <div class="flex flex-col px-4 py-2 space-y-2">
-                    <h1 class="text-xl font-medium text-primary">Judul Berita</h1>
-                    <p class="text-gray-700 line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Nihil amet cumque
-                        assumenda provident. Hic assumenda praesentium porro repellendus aliquam dolorum blanditiis.
-                        Assumenda velit facilis dicta. Atque eveniet ipsum ratione maxime. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Laudantium asperiores ex perferendis perspiciatis voluptates
-                        eligendi, similique facilis iusto ipsam quas non aliquid impedit nemo, voluptatibus repellat
-                        minima eaque, magni error?</p>
-                    <span class="text-sm text-default">1 jam lalu</span>
-                </div>
-            </a>
-            <a href="#" class="flex-col space-y-4 duration-200 bg-white shadow-xl md:w-1/3 hover:scale-105 rounded-xl">
-                <img class="object-cover w-full h-60 rounded-t-xl"
-                    src="{{ asset('images/warta/news3.jpg') }}" alt="warta">
-                <div class="flex flex-col px-4 py-2 space-y-2">
-                    <h1 class="text-xl font-medium text-primary">Judul Berita</h1>
-                    <p class="text-gray-700 line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Nihil amet cumque
-                        assumenda provident. Hic assumenda praesentium porro repellendus aliquam dolorum blanditiis.
-                        Assumenda velit facilis dicta. Atque eveniet ipsum ratione maxime. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Laudantium asperiores ex perferendis perspiciatis voluptates
-                        eligendi, similique facilis iusto ipsam quas non aliquid impedit nemo, voluptatibus repellat
-                        minima eaque, magni error?</p>
-                    <span class="text-sm text-default">1 jam lalu</span>
-                </div>
-            </a>
-
-
+            @foreach ($wartas as $warta)
+                <a href="{{ route('warta.detail', $warta->id) }}"
+                    class="flex-col space-y-4 duration-200 transform bg-white shadow-xl md:w-1/3 hover:scale-105 rounded-xl">
+                    <img class="object-cover w-full h-60 rounded-t-xl" src="{{ asset('storage/' . $warta->gambar) }}"
+                        alt="warta">
+                    <div class="flex flex-col px-4 py-2 space-y-2">
+                        <h1 class="text-xl font-medium line-clamp-2 text-primary">{{ $warta->judul }}</h1>
+                        <p class="text-gray-700 line-clamp-3">{{ $warta->isi }}</p>
+                        <span class="text-sm text-default">{{ $warta->created_at->diffForHumans() }}</span>
+                    </div>
+                </a>
+            @endforeach
         </div>
         <div class="mt-8 text-center">
-            <a href="#" class="btn-primary">Selengkapnya</a>
+            <a href="{{ route('warta') }}" class="btn-primary">Selengkapnya</a>
         </div>
     </div>
     {{-- end warta kegiatan --}}
 
     {{-- jadwal kegiatan --}}
-    @if($kegiatans)
+    @if ($kegiatans)
 
 
         <div class="pb-10 mt-10 md:px-40">
@@ -241,7 +201,7 @@
             <div x-intersect:enter="$el.classList.remove('scale-y-0')"
                 x-intersect:leave="$el.classList.add('scale-y-0')" class="transition-all duration-1000 transform">
 
-                @foreach($kegiatans as $kegiatan)
+                @foreach ($kegiatans as $kegiatan)
                     <div
                         class="flex flex-col items-center justify-center space-y-2 md:space-y-0 md:grid md:grid-cols-12">
                         <div class="flex flex-row px-4 space-x-2 md:px-0 md:col-span-12">
@@ -258,7 +218,7 @@
                                 <div class="flex flex-row items-center w-full bg-white divide-y-0 lg:w-full card">
                                     <div class="py-2 text-gray-500">
                                         <h2 class="font-bold">
-                                            {{ date('d M Y', strtotime($kegiatan->tanggal)); }}
+                                            {{ date('d M Y', strtotime($kegiatan->tanggal)) }}
                                         </h2>
                                         <p class="font-medium">{{ $kegiatan->detail }} </p>
                                     </div>
@@ -271,7 +231,7 @@
             </div>
 
             <div class="mt-8 text-center">
-                <a href="#" class="btn-primary">Selengkapnya</a>
+                <a href="{{ route('jadwal-kegiatan') }}" class="btn-primary">Selengkapnya</a>
             </div>
 
 
@@ -292,7 +252,7 @@
                 <h1 class="text-xl font-semibold uppercase text-warning">Kontak</h1>
                 <div class="flex flex-col space-y-2 text-white">
                     <span>+62 80886 65xxx</span>
-                    <span>pkkdonggala@gmail.com</span>
+                    <span>pkkdunggala@gmail.com</span>
                     <a href="/" class="flex flex-row items-center space-x-2">
                         <img src="{{ asset('images/logoPKK.jpg') }}" alt="logo" class="w-10">
                         <h1 class="text-white">SIMPKK</h1>
@@ -302,9 +262,11 @@
             <div class="flex flex-col flex-1 space-y-4">
                 <h1 class="text-xl font-semibold uppercase text-warning">Jelajahi</h1>
                 <div class="flex flex-col space-y-2 text-white capitalize">
-                    <a href="#" class="duration-200 transform hover:text-primary">profil</a>
-                    <a href="#" class="duration-200 transform hover:text-primary">warta kegiatan</a>
-                    <a href="#" class="duration-200 transform hover:text-primary">jadwal kegiatan</a>
+                    <a href="{{ route('profil') }}" class="duration-200 transform hover:text-primary">profil</a>
+                    <a href="{{ route('warta') }}" class="duration-200 transform hover:text-primary">warta
+                        kegiatan</a>
+                    <a href="{{ route('jadwal-kegiatan') }}" class="duration-200 transform hover:text-primary">jadwal
+                        kegiatan</a>
                 </div>
             </div>
             <div class="flex flex-col flex-1 space-y-4">
@@ -317,7 +279,8 @@
                                     <path fill="#039be5" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z" />
                                     <path fill="#fff"
                                         d="M26.572,29.036h4.917l0.772-4.995h-5.69v-2.73c0-2.075,0.678-3.915,2.619-3.915h3.119v-4.359c-0.548-0.074-1.707-0.236-3.897-0.236c-4.573,0-7.254,2.415-7.254,7.917v3.323h-4.701v4.995h4.701v13.729C22.089,42.905,23.032,43,24,43c0.875,0,1.729-0.08,2.572-0.194V29.036z" />
-                                </svg></div>
+                                </svg>
+                            </div>
                             <p>facebook</p>
                         </div>
                         <div class="flex flex-row items-center space-x-2">
@@ -382,7 +345,10 @@
             <div class="flex flex-col flex-1 md:space-y-2 lg:space-y-4">
                 <h1 class="text-xl font-semibold uppercase text-warning">Alamat</h1>
                 <div class="flex flex-col space-y-2 text-white capitalize">
-                    <span>Jln. Asparaga, Kel. Kawanua, Kec. Posigadan, Kab. Goorontalo, Provinsi Gorontalo</span>
+                    <span>Pemerintah Desa Dunggala
+                        Jalan Djalaludin Tantu, No.68 Desa Dunggala,
+                        Kecamatan Tibawa Kabupaten Gorontalo,
+                        Provinsi Gorontalo. Indonesia. Kode Pos:96251</span>
                 </div>
 
             </div>

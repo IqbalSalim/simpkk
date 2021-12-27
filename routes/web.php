@@ -1,6 +1,18 @@
 <?php
 
+use App\Http\Livewire\Dasawisma\Create;
+use App\Http\Livewire\Dasawisma\Detail;
+use App\Http\Livewire\Dasawisma\Edit;
+use App\Http\Livewire\Dasawisma\Index;
+use App\Http\Livewire\DetailWarta;
+use App\Http\Livewire\Profil;
+use App\Http\Livewire\ProkerIndex;
+use App\Http\Livewire\Prokok;
+use App\Http\Livewire\Struktur;
+use App\Http\Livewire\Warta as LivewireWarta;
 use App\Models\Kegiatan;
+use App\Models\Proker;
+use App\Models\Warta;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Role;
 
@@ -17,24 +29,25 @@ use Spatie\Permission\Models\Role;
 */
 
 Route::get('/', function () {
-    $kegiatan = Kegiatan::orderBy('tanggal')->offset(1)->limit(4)->get();
+    $kegiatan = Kegiatan::orderBy('tanggal')->limit(4)->get();
+    $warta = Warta::orderBy('created_at', 'desc')->limit(3)->get();
     // dd($kegiatan);
     return view('welcome', [
-        'kegiatans' => $kegiatan
+        'kegiatans' => $kegiatan,
+        'wartas' => $warta,
     ]);
 })->name('welcome');
 
-Route::get('/profil', function () {
-    return view('profil');
-})->name('profil');
+Route::get('/profil', Profil::class)->name('profil');
 
-Route::get('/warta', function () {
-    return view('warta');
-})->name('warta');
+// Route::get('/warta', LivewireWarta::class)->name('warta');
 
-Route::get('/detail-warta', function () {
-    return view('detail_warta');
-})->name('detail-warta');
+// Route::get('/detail-warta/{id}', DetailWarta::class)->name('detail-warta');
+
+Route::group(['prefix' => '/warta', 'as' => 'warta'], function () {
+    Route::get('', LivewireWarta::class)->name('');
+    Route::get('/detail/{id}', DetailWarta::class)->name('.detail');
+});
 
 Route::get('/jadwal-kegiatan', function () {
     $kegiatan = Kegiatan::orderBy('tanggal')->get();
@@ -57,17 +70,25 @@ Route::group(['middleware' => ['permission:show users']], function () {
     })->middleware(['auth'])->name('user');
 });
 
+Route::group(['prefix' => '/profil', 'as' => 'profil', 'middleware' => 'auth'], function () {
+    Route::get('/proker', ProkerIndex::class)->name('.proker');
+    Route::get('/struktur', Struktur::class)->name('.struktur');
+});
+
+
+
 Route::get('/kegiatan', function () {
     return view('kegiatan');
 })->middleware(['auth'])->name('kegiatan');
 
-Route::get('/proker', function () {
-    return view('proker');
-})->middleware(['auth'])->name('proker');
 
-Route::get('/dasawisma', function () {
-    return view('dasawisma');
-})->middleware(['auth'])->name('dasawisma');
+
+Route::group(['dasawisma' => '/dasawisma', 'as' => 'dasawisma', 'middleware' => 'auth'], function () {
+    Route::get('/dasawisma', Index::class)->name('');
+    Route::get('/dasawisma/create', Create::class)->name('.create');
+    Route::get('/dasawisma/edit/{id}', Edit::class)->name('.edit');
+    Route::get('/dasawisma/detail/{id}', Detail::class)->name('.detail');
+});
 
 Route::get('/warta-kegiatan', function () {
     return view('warta_kegiatan');

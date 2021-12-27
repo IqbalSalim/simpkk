@@ -22,13 +22,28 @@
                             {{ __('User') }}
                         </x-nav-link>
                     @endcan
+                    <x-dropdown align="left" width="48">
+                        <x-slot name="trigger">
+                            <x-nav-link :active="request()->routeIs('profil.*')" class="cursor-pointer">
+                                {{ __('Profil') }}
+                            </x-nav-link>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <x-dropdown-link :href="route('profil.proker')"
+                                :active="request()->routeIs('profil.proker')">
+                                {{ __('Program Kerja') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('profil.struktur')"
+                                :active="request()->routeIs('profil.struktur')">
+                                {{ __('Struktur Organisasi') }}
+                            </x-dropdown-link>
+                        </x-slot>
+                    </x-dropdown>
                     <x-nav-link :href="route('kegiatan')" :active="request()->routeIs('kegiatan')">
                         {{ __('Kegiatan') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('proker')" :active="request()->routeIs('proker')">
-                        {{ __('Program Kerja') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('dasawisma')" :active="request()->routeIs('dasawisma')">
+                    <x-nav-link :href="route('dasawisma')" :active="request()->routeIs('dasawisma*')">
                         {{ __('Dasawisma') }}
                     </x-nav-link>
                     <x-nav-link :href="route('warta-kegiatan')" :active="request()->routeIs('warta-kegiatan')">
@@ -103,9 +118,7 @@
             <x-responsive-nav-link :href="route('kegiatan')" :active="request()->routeIs('kegiatan')">
                 {{ __('Kegiatan') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('proker')" :active="request()->routeIs('proker')">
-                {{ __('Program Kerja') }}
-            </x-responsive-nav-link>
+
             <x-responsive-nav-link :href="route('dasawisma')" :active="request()->routeIs('dasawisma')">
                 {{ __('Dasawisma') }}
             </x-responsive-nav-link>

@@ -16,8 +16,8 @@
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex"
                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
@@ -32,7 +32,7 @@
                 <x-nav-link :href="route('profil')" :active="request()->routeIs('profil')">
                     {{ __('Profil') }}
                 </x-nav-link>
-                <x-nav-link :href="route('warta')" :active="request()->routeIs('warta')">
+                <x-nav-link :href="route('warta')" :active="request()->routeIs('warta*')">
                     {{ __('Warta Kegiatan') }}
                 </x-nav-link>
                 <x-nav-link :href="route('jadwal-kegiatan')" :active="request()->routeIs('jadwal-kegiatan')">
@@ -43,7 +43,7 @@
                 </x-nav-link>
             </div>
             <div class="hidden md:flex">
-                @if(Route::has('login'))
+                @if (Route::has('login'))
                     <div class="flex-row hidden space-x-4 sm:flex">
                         @auth
                             <a href="{{ url('/dashboard') }}"
@@ -52,11 +52,10 @@
                             <a href="{{ route('login') }}" class="text-sm btn-primary">Log
                                 in</a>
 
-                            {{-- @if(Route::has('register'))
+                            {{-- @if (Route::has('register'))
                             <a href="{{ route('register') }}"
-                            class="px-4 py-2 text-sm font-medium capitalize duration-200 transform bg-white rounded-lg bg-opacity-30 focus:ring-secondary focus:ring-opacity-50 focus:outline-none hover:bg-secondary hover:text-white text-secondary ring-2 ring-secondary">Register</a>
-                            --}}
-                        @endif
+                            class="px-4 py-2 text-sm font-medium capitalize duration-200 transform bg-white rounded-lg bg-opacity-30 focus:ring-secondary focus:ring-opacity-50 focus:outline-none hover:bg-secondary hover:text-white text-secondary ring-2 ring-secondary">Register</a> --}}
+                    @endif
                 @endauth
             </div>
 
@@ -80,13 +79,12 @@
             {{ __('Tentang Kami') }}
         </x-nav-link>
         <div>
-            @if(Route::has('login'))
+            @if (Route::has('login'))
                 @auth
                     <a href="{{ url('/dashboard') }}"
                         class="block px-4 py-2 font-bold text-white capitalize">Dashboard</a>
                 @else
-                    <a href="{{ route('login') }}"
-                        class="block px-4 py-2 font-bold text-white capitalize">Log
+                    <a href="{{ route('login') }}" class="block px-4 py-2 font-bold text-white capitalize">Log
                         in</a>
                 @endif
             @endauth

@@ -29,4 +29,14 @@ class Keluarga extends Model
         'up2k',
         'usaha_kesehatan_lingkungan',
     ];
+
+    public function dataPenduduk()
+    {
+        return $this->hasOne(DataPenduduk::class, 'NIK', 'nik');
+    }
+
+    public function filterNama()
+    {
+        return $this->dataPenduduk()->select('Nama_Lengkap', 'dusun')->first();
+    }
 }
