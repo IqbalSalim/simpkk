@@ -13,10 +13,11 @@ class WartaIndex extends Component
     use WithFileUploads, WithPagination;
 
     public $judul, $isi, $penulis, $photo;
-    public $warta_id, $warta_judul, $warat_isi, $warta_penulis, $warta_photo;
+    public $warta_id, $warta_judul, $warta_isi, $warta_penulis, $warta_photo;
     public $paginate = 6, $search;
     protected $queryString = ['search'];
 
+    protected $listeners = ['render'];
 
     public function render()
     {
@@ -43,32 +44,7 @@ class WartaIndex extends Component
     }
 
 
-    public function store()
-    {
 
-        $this->validate(
-            [
-                'judul' => 'required|string|max:255',
-                'isi' => 'required|string',
-                'penulis' => 'required|string|max:255|',
-                'photo' => 'required|image|max:1024',
-
-            ]
-        );
-
-        $imageName = $this->photo->store('images', 'public');
-
-        Warta::create([
-            'judul' => $this->judul,
-            'isi' => $this->isi,
-            'penulis' => $this->penulis,
-            'gambar' => $imageName,
-        ]);
-
-        $this->resetInput();
-        $this->dispatchBrowserEvent('close-modal');
-        session()->flash('message', 'Warta Added Successfully.');
-    }
 
     public function getWarta($id)
     {
@@ -81,9 +57,6 @@ class WartaIndex extends Component
 
     public function update()
     {
-
-
-
         if ($this->warta_id) {
 
 
@@ -95,7 +68,7 @@ class WartaIndex extends Component
                         'warta_judul' => 'required|string|max:255',
                         'warta_isi' => 'required|string',
                         'warta_penulis' => 'required|string|max:255|',
-                        'warta_photo' => 'image|max:1024',
+                        'warta_photo' => 'image|max:2048',
 
                     ]
                 );
