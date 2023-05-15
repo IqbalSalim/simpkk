@@ -5,9 +5,9 @@
         </h2>
     </x-slot>
     @if (session()->has('message'))
-        <div class="block px-4 py-2 text-white bg-opacity-50 bg-success rounded-xl">
-            {{ session('message') }}
-        </div>
+    <div class="block px-4 py-2 text-white bg-opacity-50 bg-success rounded-xl">
+        {{ session('message') }}
+    </div>
     @endif
     <div class="px-4 py-2 bg-white rounded-lg shadow-lg">
         <div>
@@ -23,7 +23,7 @@
                         type="file" name="struktur" autofocus />
                     <span class="text-sm text-danger">
                         @error('struktur')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -33,8 +33,11 @@
                     <button class="font-medium btn-primary btn-sm" wire:click.prevent='update'>Simpan</button>
                 </div>
 
-                <div class="mt-4">
-                    <img src="{{ asset('storage/' . $gambar) }}" alt="">
+                <div class="flex flex-row items-center justify-center mt-4">
+                    <div>
+                        <img src="{{ $status_gambar ? asset('storage/' . $gambar) : asset($gambar) }}"
+                            alt="Gambar Struktur Organisasi">
+                    </div>
                 </div>
             </form>
         </div>
