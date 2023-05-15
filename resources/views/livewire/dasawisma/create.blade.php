@@ -10,8 +10,8 @@
                 <div class="relative mb-2">
                     <div class="flex items-center w-10 h-10 mx-auto text-lg text-white rounded-full bg-primary">
                         <span class="w-full text-center text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-full" fill="none" width="24"
-                                height="24" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-full" fill="none" width="24" height="24"
+                                viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                             </svg>
@@ -34,8 +34,8 @@
                     <div
                         class="flex items-center w-10 h-10 mx-auto text-lg text-white rounded-full {{ $currentStep >= 2 ? 'bg-primary' : 'bg-gray-200' }}">
                         <span class="w-full text-center text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-full" fill="none" width="24"
-                                height="24" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-full" fill="none" width="24" height="24"
+                                viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                             </svg>
@@ -84,8 +84,8 @@
                     <div
                         class="flex items-center w-10 h-10 mx-auto text-lg text-white rounded-full {{ $currentStep != 4 ? 'bg-gray-200' : 'bg-primary' }}">
                         <span class="w-full text-center text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-full" width="24" height="24"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-full" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                             </svg>
@@ -106,7 +106,7 @@
                 <x-input wire:model.defer="nik" id="nik" class="block w-full mt-1" type="text" name="nik" autofocus />
                 <span class="text-sm text-danger">
                     @error('nik')
-                        {{ $message }}
+                    {{ $message }}
                     @enderror
                 </span>
             </div>
@@ -130,13 +130,24 @@
                         name="nama" readonly />
                 </div>
                 <div class="mt-4">
+                    <x-label for="nama_krt" :value="__('Nama Kepala Keluarga')" />
+
+                    <x-input wire:model.defer="nama_krt" id="nama_krt" class="block w-full mt-1 text-sm" type="text"
+                        name="nama_krt" autofocus />
+                    <span class="text-sm text-danger">
+                        @error('nama_krt')
+                        {{ $message }}
+                        @enderror
+                    </span>
+                </div>
+                <div class="mt-4">
                     <x-label for="no_dasawisma" :value="__('Nomor Dasawisma')" />
 
                     <x-input wire:model.defer="no_dasawisma" id="no_dasawisma" class="block w-full mt-1 text-sm"
                         type="text" name="no_dasawisma" autofocus />
                     <span class="text-sm text-danger">
                         @error('no_dasawisma')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -147,7 +158,7 @@
                         name="no_reg" autofocus />
                     <span class="text-sm text-danger">
                         @error('no_reg')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -161,7 +172,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('akseptor_kb')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -175,7 +186,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('kegiatan_posyandu')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -189,7 +200,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('program_bkb')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -203,7 +214,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('tabungan')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -212,12 +223,14 @@
                     <select wire:model.defer='kelompok_belajar' name="kelompok_belajar" id="kelompok_belajar"
                         class="block w-full mt-1 text-sm capitalize border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                         <option value="">-- Pilih --</option>
-                        <option value="Ya">Ya</option>
+                        <option value="Paket A">Paket A</option>
+                        <option value="Paket B">Paket B</option>
+                        <option value="Paket C">Paket C</option>
                         <option value="Tidak">Tidak</option>
                     </select>
                     <span class="text-sm text-danger">
                         @error('kelompok_belajar')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -231,7 +244,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('paud')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -245,7 +258,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('kegiatan_koperasi')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -271,7 +284,7 @@
                         min="0" name="jumlah_AK" autofocus />
                     <span class="text-sm text-danger">
                         @error('jumlah_AK')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -282,7 +295,7 @@
                         min="0" name="jumlah_KK" autofocus />
                     <span class="text-sm text-danger">
                         @error('jumlah_KK')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -293,7 +306,7 @@
                         min="0" name="balita" autofocus />
                     <span class="text-sm text-danger">
                         @error('balita')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -304,7 +317,7 @@
                         name="pus" autofocus />
                     <span class="text-sm text-danger">
                         @error('pus')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -315,7 +328,7 @@
                         name="wus" autofocus />
                     <span class="text-sm text-danger">
                         @error('wus')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -326,18 +339,18 @@
                         name="buta" autofocus />
                     <span class="text-sm text-danger">
                         @error('buta')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
                 <div class="mt-4">
                     <x-label for="ibu_hamil" :value="__('Ibu Hamil')" />
 
-                    <x-input wire:model.defer="ibu_hamil" id="ibu_hamil" class="block w-full mt-1 text-sm"
-                        type="number" min="0" name="ibu_hamil" autofocus />
+                    <x-input wire:model.defer="ibu_hamil" id="ibu_hamil" class="block w-full mt-1 text-sm" type="number"
+                        min="0" name="ibu_hamil" autofocus />
                     <span class="text-sm text-danger">
                         @error('ibu_hamil')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -348,7 +361,7 @@
                         type="number" min="0" name="ibu_menyusui" autofocus />
                     <span class="text-sm text-danger">
                         @error('ibu_menyusui')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -359,7 +372,7 @@
                         min="0" name="lansia" autofocus />
                     <span class="text-sm text-danger">
                         @error('lansia')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -373,7 +386,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('makanan_pokok')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -390,7 +403,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('jamban_keluarga')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -406,7 +419,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('sumber_air')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -420,7 +433,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('pembuangan_sampah')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -435,7 +448,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('pembuangan_air_limbah')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -449,7 +462,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('stiker_pkk')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -463,7 +476,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('kriteria_rumah')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -477,7 +490,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('up2k')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -493,7 +506,7 @@
                     </select>
                     <span class="text-sm text-danger">
                         @error('usaha_kesehatan_lingkungan')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>

@@ -10,6 +10,7 @@ class Warga extends Model
     use HasFactory;
     protected $fillable = [
         'no_dasawisma',
+        'nama_krt',
         'no_reg',
         'nik',
         'akseptor_kb',

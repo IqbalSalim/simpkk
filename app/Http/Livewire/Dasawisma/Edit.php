@@ -11,7 +11,7 @@ class Edit extends Component
 {
     public $no_dasawisma, $no_reg, $akseptor_kb, $kegiatan_posyandu, $program_bkb, $tabungan, $kelompok_belajar, $paud, $kegiatan_koperasi;
     public $jumlah_AK, $jumlah_KK, $balita, $pus, $wus, $buta, $ibu_hamil, $ibu_menyusui, $lansia, $makanan_pokok, $jamban_keluarga, $sumber_air, $pembuangan_sampah, $pembuangan_air_limbah, $stiker_pkk, $kriteria_rumah, $up2k, $usaha_kesehatan_lingkungan;
-    public $nama, $nik, $warga, $keluarga;
+    public $nama, $nik, $warga, $keluarga, $warga_id, $nama_krt;
 
     public function mount($id)
     {
@@ -33,6 +33,7 @@ class Edit extends Component
     {
         $this->no_dasawisma = $warga->no_dasawisma;
         $this->no_reg = $warga->no_reg;
+        $this->nama_krt = $warga->nama_krt;
         $this->akseptor_kb = $warga->akseptor_kb;
         $this->kegiatan_posyandu = $warga->kegiatan_posyandu;
         $this->program_bkb = $warga->program_bkb;
@@ -71,9 +72,10 @@ class Edit extends Component
     {
         $validateWarga =  $this->validate(
             [
-                'no_dasawisma' => 'required|integer|unique:wargas,no_dasawisma,' . $this->warga->no_dasawisma . ',id',
-                'no_reg' => 'required|integer|unique:wargas,no_reg,' . $this->warga->no_reg . ',id',
+                'no_dasawisma' => 'required|integer|unique:wargas,no_dasawisma,' . $this->warga->id,
+                'no_reg' => 'required|integer|unique:wargas,no_reg,' . $this->warga->id,
                 'akseptor_kb' => 'required|string',
+                'nama_krt' => 'required|string',
                 'kegiatan_posyandu' => 'required|string',
                 'program_bkb' => 'required|string',
                 'tabungan' => 'required|string',
@@ -86,6 +88,7 @@ class Edit extends Component
                 'no_dasawisma' => 'No Dasawisma',
                 'no_reg' => 'No Registrasi',
                 'akseptor_kb' => 'Akseptor KB',
+                'nama_krt' => 'Nama Kepala Keluarga',
                 'kegiatan_posyandu' => 'Kegiatan Posyandu',
                 'program_bkb' => 'Program BKB',
                 'tabungan' => 'Tabungan',

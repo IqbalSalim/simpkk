@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class Create extends Component
 {
-    public $currentStep = 1, $nik, $nama;
+    public $currentStep = 1, $nik, $nama, $nama_krt;
     public $no_dasawisma, $no_reg, $akseptor_kb, $kegiatan_posyandu, $program_bkb, $tabungan, $kelompok_belajar, $paud, $kegiatan_koperasi;
     public $jumlah_AK, $jumlah_KK, $balita, $pus, $wus, $buta, $ibu_hamil, $ibu_menyusui, $lansia, $makanan_pokok, $jamban_keluarga, $sumber_air, $pembuangan_sampah, $pembuangan_air_limbah, $stiker_pkk, $kriteria_rumah, $up2k, $usaha_kesehatan_lingkungan;
 
@@ -43,6 +43,7 @@ class Create extends Component
                 'no_dasawisma' => 'required|string|unique:wargas,no_dasawisma,',
                 'no_reg' => 'required|string|unique:wargas,no_reg,',
                 'akseptor_kb' => 'required|string',
+                'nama_krt' => 'required|string',
                 'kegiatan_posyandu' => 'required|string',
                 'program_bkb' => 'required|string',
                 'tabungan' => 'required|string',
@@ -54,6 +55,7 @@ class Create extends Component
             [
                 'no_dasawisma' => 'No Dasawisma',
                 'no_reg' => 'No Registrasi',
+                'nama_krt' => 'Nama Kepala Keluarga',
                 'akseptor_kb' => 'Akseptor KB',
                 'kegiatan_posyandu' => 'Kegiatan Posyandu',
                 'program_bkb' => 'Program BKB',
@@ -118,6 +120,7 @@ class Create extends Component
     public function submitForm()
     {
         Warga::create([
+            'nama_krt' => $this->nama_krt,
             'no_dasawisma' => $this->no_dasawisma,
             'no_reg' => $this->no_reg,
             'nik' => $this->nik,
