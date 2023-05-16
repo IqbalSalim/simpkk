@@ -64,7 +64,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::group(['middleware' => ['permission:show users']], function () {
+Route::group(['middleware' => ['permission:olah user']], function () {
     Route::get('/user', function () {
         return view('user');
     })->middleware(['auth'])->name('user');

@@ -2,7 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Anggota;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -15,45 +19,45 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
-                'nama' => 'Noor Hidayat Ente, S.H, M.H',
+                'nama' => 'Admin SIMPKK',
                 'jenis_kelamin' => 'Laki-laki',
                 'no_telpon' => '082345345332',
-                'alamat' => 'Jln Dewi Sartika, Samping Kampus 1 UNG',
+                'alamat' => 'Jln Jeruk',
                 'email' => 'admin@gmail.com',
-                'foto' => 'foto/default-user.png',
+                'foto' => '',
                 'password' => 'password',
                 'role' => 'admin',
             ],
             [
-                'nama' => 'Al Iqbal Bin Salim, S.Kom',
+                'nama' => 'John Doe',
                 'jenis_kelamin' => 'Laki-laki',
-                'no_telpon' => '082271131552',
-                'alamat' => 'Jln Analisa, Kel. Tumbihe, Kec. Kabila, Kab. Bone Bolango',
-                'email' => 'iqbalbinsalim@gmail.com',
-                'foto' => 'foto/default-user.png',
+                'no_telpon' => '082241131552',
+                'alamat' => 'Jln Analisa',
+                'email' => 'john@gmail.com',
+                'foto' => '',
                 'password' => 'password',
-                'role' => 'operator',
+                'role' => 'anggota',
             ]
         ];
 
-        // foreach ($users as $row) {
-        //     $user = User::create([
-        //         'email' => $row['email'],
-        //         'password' => Hash::make($row['password']),
-        //     ]);
+        foreach ($users as $row) {
+            $user = User::create([
+                'email' => $row['email'],
+                'password' => Hash::make($row['password']),
+            ]);
 
-        //     Karyawan::create([
-        //         'user_id' => $user->id,
-        //         'nama' => $row['nama'],
-        //         'jenis_kelamin' => $row['jenis_kelamin'],
-        //         'no_telpon' => $row['no_telpon'],
-        //         'alamat' => $row['alamat'],
-        //         'foto' => $row['foto'],
-        //     ]);
+            Anggota::create([
+                'user_id' => $user->id,
+                'nama' => $row['nama'],
+                'jenis_kelamin' => $row['jenis_kelamin'],
+                'no_telpon' => $row['no_telpon'],
+                'alamat' => $row['alamat'],
+                'foto' => $row['foto'],
+            ]);
 
-        //     $role = Role::where('name', $row['role'])->first();
-        //     $user = User::where('email', $row['email'])->first();
-        //     $user->assignRole($role);
-        // }
+            $role = Role::where('name', $row['role'])->first();
+            $user = User::where('email', $row['email'])->first();
+            $user->assignRole($role);
+        }
     }
 }

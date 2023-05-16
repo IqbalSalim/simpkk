@@ -13,6 +13,8 @@ class UserIndex extends Component
 {
     use WithPagination;
 
+    protected $listeners = ['render'];
+
     public $role, $name, $email, $password, $password_confirmation;
     public $user_id, $user_role, $user_name, $user_email;
     public $roles;
