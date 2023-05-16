@@ -25,14 +25,15 @@ class UserIndex extends Component
     public function render()
     {
 
-        $this->roles = Role::whereNotIn('name', ['super-admin'])->get();
-        // $this->users = User::with('roles')->whereRelation('roles', 'name', 'not like', 'super-admin')->paginate(3);
 
-        // dd($this->users);
+
+
         return view('livewire.user-index', [
             'users' => $this->search === null ?
-                User::with('roles')->whereRelation('roles', 'name', 'not like', 'super-admin')->paginate($this->paginate) :
-                User::where('name', 'like', '%' . $this->search . '%')->with('roles')->whereRelation('roles', 'name', 'not like', 'super-admin')->paginate($this->paginate)
+                User::with('roles')->whereRelation('roles', 'name', 'not like', 'admin')->paginate($this->paginate) :
+                User::whereHas('anggota', function ($q) {
+                    $q->where('nama', 'like', '%' . $this->search . '%');
+                })->with('roles')->whereRelation('roles', 'name', 'not like', 'admin')->paginate($this->paginate)
 
         ]);
     }
