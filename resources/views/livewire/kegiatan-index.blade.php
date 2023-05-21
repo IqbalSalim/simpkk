@@ -1,4 +1,4 @@
-<div class="px-4 py-2 bg-white rounded-lg shadow-lg" x-data="{ modal: false, modalEdit: false }"
+<div x-cloak class="px-4 py-2 bg-white rounded-lg shadow-lg" x-data="{ modal: false, modalEdit: false }"
     x-on:close-modal.window="modal = false" x-on:close-modal-edit.window="modalEdit = false">
     <div class="flex flex-row items-center justify-between py-2 font-semibold text-gray-700 border-b-2 border-gray-300">
         <div>
@@ -45,7 +45,7 @@
                                 name="tanggal" autofocus />
                             <span class="text-sm text-danger">
                                 @error('tanggal')
-                                    {{ $message }}
+                                {{ $message }}
                                 @enderror
                             </span>
                         </div>
@@ -59,7 +59,7 @@
                                 type="text" name="detail"></textarea>
                             <span class="text-sm text-danger">
                                 @error('detail')
-                                    {{ $message }}
+                                {{ $message }}
                                 @enderror
                             </span>
                         </div>
@@ -81,9 +81,9 @@
         </form>
 
         @if (session()->has('message'))
-            <div class="block px-4 py-2 my-2 text-white bg-opacity-50 bg-success rounded-xl">
-                {{ session('message') }}
-            </div>
+        <div class="block px-4 py-2 my-2 text-white bg-opacity-50 bg-success rounded-xl">
+            {{ session('message') }}
+        </div>
         @endif
         {{-- End Form Tambah User --}}
         <div class="flex flex-row items-center justify-between">
@@ -126,25 +126,25 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                     @foreach ($kegiatans as $key => $kegiatan)
-                        <tr>
-                            <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
-                                {{ $key + 1 }}
-                            </td>
-                            <td class="px-2 py-4 md:px-6">
-                                {{ $kegiatan->tanggal }}
-                            </td>
-                            <td class="px-2 md:px-6">
-                                {{ $kegiatan->detail }}
-                            </td>
-                            <td class="px-2 md:px-6">
-                                <div class="flex flex-row items-center space-x-4">
-                                    <button @click="modalEdit = true" wire:click="getUser({{ $kegiatan->id }})"
-                                        type="button" class="text-sm btn-secondary">edit</button>
-                                    <button wire:click="delete({{ $kegiatan->id }})" type="button"
-                                        class="text-sm btn-danger">hapus</button>
-                                </div>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
+                            {{ $key + 1 }}
+                        </td>
+                        <td class="px-2 py-4 md:px-6">
+                            {{ $kegiatan->tanggal }}
+                        </td>
+                        <td class="px-2 md:px-6">
+                            {{ $kegiatan->detail }}
+                        </td>
+                        <td class="px-2 md:px-6">
+                            <div class="flex flex-row items-center space-x-4">
+                                <button @click="modalEdit = true" wire:click="getUser({{ $kegiatan->id }})"
+                                    type="button" class="text-sm btn-secondary">edit</button>
+                                <button wire:click="delete({{ $kegiatan->id }})" type="button"
+                                    class="text-sm btn-danger">hapus</button>
+                            </div>
+                        </td>
+                    </tr>
                     @endforeach
                     <!-- More people... -->
                 </tbody>
@@ -187,7 +187,7 @@
                             type="date" name="kegiatan_tanggal" autofocus />
                         <span class="text-sm text-danger">
                             @error('kegiatan_tanggal')
-                                {{ $message }}
+                            {{ $message }}
                             @enderror
                         </span>
                     </div>
@@ -201,7 +201,7 @@
                             type="text" name="kegiatan_detail"></textarea>
                         <span class="text-sm text-danger">
                             @error('kegiatan_detail')
-                                {{ $message }}
+                            {{ $message }}
                             @enderror
                         </span>
                     </div>

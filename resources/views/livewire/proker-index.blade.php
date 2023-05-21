@@ -4,7 +4,7 @@
             {{ __('Program Kerja') }}
         </h2>
     </x-slot>
-    <div class="px-4 py-2 bg-white rounded-lg shadow-lg" x-data="{ modal: @entangle('modal').defer }"
+    <div x-cloak class="px-4 py-2 bg-white rounded-lg shadow-lg" x-data="{ modal: @entangle('modal').defer }"
         x-on:close-modal.window="modal = false" x-on:close-modal-edit.window="modalEdit = false">
         <div
             class="flex flex-row items-center justify-between py-2 font-semibold text-gray-700 border-b-2 border-gray-300">
@@ -43,9 +43,9 @@
                             <div class="mt-2">
                                 <p class="text-sm leading-5 text-primary">
                                     @if ($event === 'store')
-                                        silahkan isi data program kerja
+                                    silahkan isi data program kerja
                                     @else
-                                        silahkan edit data program kerja
+                                    silahkan edit data program kerja
                                     @endif
                                 </p>
                             </div>
@@ -61,7 +61,7 @@
                                     name="nama" autofocus />
                                 <span class="text-sm text-danger">
                                     @error('nama')
-                                        {{ $message }}
+                                    {{ $message }}
                                     @enderror
                                 </span>
                             </div>
@@ -73,7 +73,7 @@
                                     type="text" name="tujuan" autofocus />
                                 <span class="text-sm text-danger">
                                     @error('tujuan')
-                                        {{ $message }}
+                                    {{ $message }}
                                     @enderror
                                 </span>
                             </div>
@@ -86,7 +86,7 @@
                                     type="text" name="sasaran" autofocus />
                                 <span class="text-sm text-danger">
                                     @error('sasaran')
-                                        {{ $message }}
+                                    {{ $message }}
                                     @enderror
                                 </span>
                             </div>
@@ -99,7 +99,7 @@
                                     name="pj" autofocus />
                                 <span class="text-sm text-danger">
                                     @error('pj')
-                                        {{ $message }}
+                                    {{ $message }}
                                     @enderror
                                 </span>
                             </div>
@@ -127,7 +127,7 @@
                                 </select>
                                 <span class="text-sm text-danger">
                                     @error('program_pokok')
-                                        {{ $message }}
+                                    {{ $message }}
                                     @enderror
                                 </span>
                             </div>
@@ -150,9 +150,9 @@
             </form>
 
             @if (session()->has('message'))
-                <div class="block px-4 py-2 my-2 text-white bg-opacity-50 bg-success rounded-xl">
-                    {{ session('message') }}
-                </div>
+            <div class="block px-4 py-2 my-2 text-white bg-opacity-50 bg-success rounded-xl">
+                {{ session('message') }}
+            </div>
             @endif
             {{-- End Form Tambah User --}}
             <div class="flex flex-row items-center justify-between">
@@ -207,34 +207,34 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($prokers as $key => $proker)
-                            <tr class="text-sm">
-                                <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
-                                    {{ $key + 1 }}
-                                </td>
-                                <td class="px-2 py-4 md:px-6">
-                                    {{ $proker->nama }}
-                                </td>
-                                <td class="px-2 md:px-6">
-                                    {{ $proker->tujuan }}
-                                </td>
-                                <td class="px-2 md:px-6">
-                                    {{ $proker->sasaran }}
-                                </td>
-                                <td class="px-2 md:px-6">
-                                    {{ $proker->pj }}
-                                </td>
-                                <td class="px-2 md:px-6">
-                                    {{ $proker->program_pokok }}
-                                </td>
-                                <td class="px-2 md:px-6">
-                                    <div class="flex flex-row items-center space-x-4">
-                                        <button @click="modal = true" wire:click="getProker({{ $proker->id }})"
-                                            type="button" class="text-sm btn-secondary">edit</button>
-                                        <button wire:click="delete({{ $proker->id }})" type="button"
-                                            class="text-sm btn-danger">hapus</button>
-                                    </div>
-                                </td>
-                            </tr>
+                        <tr class="text-sm">
+                            <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
+                                {{ $key + 1 }}
+                            </td>
+                            <td class="px-2 py-4 md:px-6">
+                                {{ $proker->nama }}
+                            </td>
+                            <td class="px-2 md:px-6">
+                                {{ $proker->tujuan }}
+                            </td>
+                            <td class="px-2 md:px-6">
+                                {{ $proker->sasaran }}
+                            </td>
+                            <td class="px-2 md:px-6">
+                                {{ $proker->pj }}
+                            </td>
+                            <td class="px-2 md:px-6">
+                                {{ $proker->program_pokok }}
+                            </td>
+                            <td class="px-2 md:px-6">
+                                <div class="flex flex-row items-center space-x-4">
+                                    <button @click="modal = true" wire:click="getProker({{ $proker->id }})"
+                                        type="button" class="text-sm btn-secondary">edit</button>
+                                    <button wire:click="delete({{ $proker->id }})" type="button"
+                                        class="text-sm btn-danger">hapus</button>
+                                </div>
+                            </td>
+                        </tr>
                         @endforeach
                         <!-- More people... -->
                     </tbody>

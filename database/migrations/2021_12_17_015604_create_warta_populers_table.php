@@ -15,7 +15,7 @@ class CreateWartaPopulersTable extends Migration
     {
         Schema::create('warta_populer', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('warta_id')->constrained('wartas');
+            $table->foreignId('warta_id')->constrained('wartas')->onDelete('cascade');
             $table->string('alamat_ip');
             $table->timestamps();
         });
