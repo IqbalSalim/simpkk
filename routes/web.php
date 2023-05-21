@@ -5,6 +5,7 @@ use App\Http\Livewire\Dasawisma\Detail;
 use App\Http\Livewire\Dasawisma\Edit;
 use App\Http\Livewire\Dasawisma\Index;
 use App\Http\Livewire\DetailWarta;
+use App\Http\Livewire\Laporan\IndexLaporan;
 use App\Http\Livewire\Profil;
 use App\Http\Livewire\ProkerIndex;
 use App\Http\Livewire\Prokok;
@@ -93,6 +94,11 @@ Route::group(['dasawisma' => '/dasawisma', 'as' => 'dasawisma', 'middleware' => 
 Route::get('/warta-kegiatan', function () {
     return view('warta_kegiatan');
 })->middleware(['auth'])->name('warta-kegiatan');
+
+Route::group(['prefix' => '/laporan', 'as' => 'laporan'], function () {
+    Route::get('', IndexLaporan::class)->name('');
+    // Route::get('/detail/{id}', DetailWarta::class)->name('.detail');
+});
 
 
 

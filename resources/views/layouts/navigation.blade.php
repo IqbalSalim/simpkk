@@ -53,7 +53,7 @@
                         {{ __('Warta Kegiatan') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('laporan')" :active="request()->routeIs('laporan')">
                         {{ __('Laporan') }}
                     </x-nav-link>
 
