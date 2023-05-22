@@ -42,23 +42,7 @@ class ProkerIndex extends Component
     }
 
 
-    public function store()
-    {
 
-        $validateDate  = $this->validate(
-            [
-                'nama' => 'required|string',
-                'tujuan' => 'required|string',
-                'sasaran' => 'required|string',
-                'pj' => 'required|string',
-                'program_pokok' => 'required|string',
-            ]
-        );
-        Proker::create($validateDate);
-
-        session()->flash('message', 'Proker Added Successfully.');
-        $this->dispatchBrowserEvent('close-modal');
-    }
 
     public function getProker($id)
     {
