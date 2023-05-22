@@ -4,6 +4,7 @@ use App\Http\Livewire\Dasawisma\Create;
 use App\Http\Livewire\Dasawisma\Detail;
 use App\Http\Livewire\Dasawisma\Edit;
 use App\Http\Livewire\Dasawisma\Index;
+use App\Http\Livewire\Dashboard\IndexDashboard;
 use App\Http\Livewire\DetailWarta;
 use App\Http\Livewire\Laporan\IndexLaporan;
 use App\Http\Livewire\Profil;
@@ -61,9 +62,7 @@ Route::get('/tentang-kami', function () {
     return view('tentang_kami');
 })->name('tentang-kami');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', IndexDashboard::class)->middleware(['auth'])->name('dashboard');
 
 Route::group(['middleware' => ['permission:olah user']], function () {
     Route::get('/user', function () {

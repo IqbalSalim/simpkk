@@ -43,6 +43,9 @@
         </main>
     </div>
     @livewireScripts
+    <livewire:scripts />
+    @livewireChartsScripts
+    @stack('chart-script')
 </body>
 
 </html>
