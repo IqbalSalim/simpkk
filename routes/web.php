@@ -72,8 +72,8 @@ Route::group(['middleware' => ['permission:olah user']], function () {
 });
 
 Route::group(['prefix' => '/profil', 'as' => 'profil', 'middleware' => 'auth'], function () {
-    Route::get('/proker', ProkerIndex::class)->name('.proker');
-    Route::get('/struktur', Struktur::class)->name('.struktur');
+    Route::get('/proker', ProkerIndex::class)->middleware(['can:olah profil'])->name('.proker');
+    Route::get('/struktur', Struktur::class)->middleware(['can:olah profil'])->name('.struktur');
 });
 
 

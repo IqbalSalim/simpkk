@@ -50,7 +50,6 @@ class RoleSeeder extends Seeder
         // Tambah Permission di Role Anggota
         $role = Role::where('name', 'anggota')->first();
         $role->givePermissionTo([
-            'olah profil',
             'olah kegiatan',
             'olah dasawisma',
             'olah warta',

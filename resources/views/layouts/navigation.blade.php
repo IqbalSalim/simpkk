@@ -23,6 +23,7 @@
                     </x-nav-link>
                     @endcan
 
+                    @can('olah profil')
                     <x-dropdown align="left" width="48">
                         <x-slot name="trigger">
                             <x-nav-link :active="request()->routeIs('profil.*')" class="cursor-pointer">
@@ -41,6 +42,7 @@
                             </x-dropdown-link>
                         </x-slot>
                     </x-dropdown>
+                    @endcan
                     <x-nav-link :href="route('kegiatan')" :active="request()->routeIs('kegiatan')">
                         {{ __('Kegiatan') }}
                     </x-nav-link>
