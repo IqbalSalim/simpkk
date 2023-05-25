@@ -86,6 +86,9 @@
                         <x-dropdown-link :href="route('profil-user')">
                             {{ __('Profil') }}
                         </x-dropdown-link>
+                        <x-dropdown-link :href="route('change-password')">
+                            {{ __('Ubah Password') }}
+                        </x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 

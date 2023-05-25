@@ -96,7 +96,6 @@ class IndexProfil extends Component
             if (Storage::disk('public')->exists($foto)) {
                 Storage::disk('public')->delete($foto);
             }
-            dd($e);
             session()->flash('message', 'Terjadi Kesalahan.');
         }
     }
