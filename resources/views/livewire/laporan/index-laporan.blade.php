@@ -5,6 +5,12 @@
         </h2>
     </x-slot>
     <div class="px-4 py-2 mt-4 bg-white divide-y-2 divide-gray-200 rounded-lg shadow-lg">
+        <div
+            class="flex flex-row items-center justify-between py-2 font-semibold text-gray-700 border-b-2 border-gray-300">
+            <div>
+                <h2>Data Keluarga</h2>
+            </div>
+        </div>
         <div>
             <div class="w-full overflow-x-auto">
                 <table class="min-w-full mt-2 divide-y divide-gray-200 table-auto">
@@ -150,6 +156,12 @@
     </div>
 
     <div class="px-4 py-2 mt-4 bg-white divide-y-2 divide-gray-200 rounded-lg shadow-lg">
+        <div
+            class="flex flex-row items-center justify-between py-2 font-semibold text-gray-700 border-b-2 border-gray-300">
+            <div>
+                <h2>Data Kegiatan Warga</h2>
+            </div>
+        </div>
         <div>
             <div class="w-full overflow-x-auto">
                 <table class="min-w-full mt-2 divide-y divide-gray-200 table-auto">

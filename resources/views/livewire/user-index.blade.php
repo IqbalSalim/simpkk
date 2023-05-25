@@ -61,10 +61,10 @@
                             class="px-2 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase md:px-6">
                             Alamat
                         </th>
-                        <th scope="col"
+                        {{-- <th scope="col"
                             class="px-2 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase md:px-6">
                             Role
-                        </th>
+                        </th> --}}
                         <th scope="col"
                             class="px-2 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
                             <span>Edit</span>
@@ -98,13 +98,13 @@
                         <td class="px-6 py-4">
                             {{$user->anggota->alamat }}
                         </td>
-                        <td class="px-2 md:px-6">
+                        {{-- <td class="px-2 md:px-6">
                             @if (!empty($user->roles[0]->name))
                             <span class="px-2 text-sm text-white bg-opacity-50 rounded-full bg-primary">{{
                                 $user->roles[0]->name }}
                             </span>
                             @endif
-                        </td>
+                        </td> --}}
                         <td class="px-2 md:px-6">
                             <div class="flex flex-row items-center space-x-4">
                                 <button @click="modalEdit = true" wire:click.prevent="$emit('getUser', {{ $user->id }})"

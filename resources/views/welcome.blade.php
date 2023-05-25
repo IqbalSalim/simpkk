@@ -64,76 +64,88 @@
                 </div>
                 <div class="hidden md:flex">
                     @if (Route::has('login'))
-                        <div class="flex-row hidden space-x-4 sm:flex">
-                            @auth
-                                <a href="{{ url('/dashboard') }}"
-                                    class="text-sm text-gray-700 underline dark:text-gray-500">Dashboard</a>
-                            @else
-                                <a href="{{ route('login') }}" class="text-sm btn-primary">Log
-                                    in</a>
+                    <div class="flex-row hidden space-x-4 sm:flex">
+                        @auth
+                        <a href="{{ url('/dashboard') }}"
+                            class="text-sm text-gray-700 underline dark:text-gray-500">Dashboard</a>
+                        @else
+                        <a href="{{ route('login') }}" class="text-sm btn-primary">Log
+                            in</a>
 
-                                {{-- @if (Route::has('register'))
-                                    <a href="{{ route('register') }}"
-                                class="px-4 py-2 text-sm font-medium capitalize duration-200 transform bg-white rounded-lg bg-opacity-30 focus:ring-secondary focus:ring-opacity-50 focus:outline-none hover:bg-secondary hover:text-white text-secondary ring-2 ring-secondary">Register</a> --}}
+                        {{-- @if (Route::has('register'))
+                        <a href="{{ route('register') }}"
+                            class="px-4 py-2 text-sm font-medium capitalize duration-200 transform bg-white rounded-lg bg-opacity-30 focus:ring-secondary focus:ring-opacity-50 focus:outline-none hover:bg-secondary hover:text-white text-secondary ring-2 ring-secondary">Register</a>
+                        --}}
                         @endif
-                    @endauth
+                        @endauth
+                    </div>
+
                 </div>
 
             </div>
-
-        </div>
-        <div x-show="open" x-transition.duration.500 class="flex flex-col space-y-2 bg-black bg-opacity-20">
-            <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
-                {{ __('Beranda') }}
-            </x-nav-link>
-            <x-nav-link :href="route('profil')" :active="request()->routeIs('profil')">
-                {{ __('Profil') }}
-            </x-nav-link>
-            <x-nav-link :href="route('warta')" :active="request()->routeIs('warta')">
-                {{ __('Warta Kegiatan') }}
-            </x-nav-link>
-            <x-nav-link :href="route('jadwal-kegiatan')" :active="request()->routeIs('jadwal-kegiatan')">
-                {{ __('Jadwal Kegiatan') }}
-            </x-nav-link>
-            <x-nav-link :href="route('tentang-kami')" :active="request()->routeIs('tentang-kami')">
-                {{ __('Tentang Kami') }}
-            </x-nav-link>
-            <div>
-                @if (Route::has('login'))
+            <div x-show="open" x-transition.duration.500 class="flex flex-col space-y-2 bg-black bg-opacity-20">
+                <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                    {{ __('Beranda') }}
+                </x-nav-link>
+                <x-nav-link :href="route('profil')" :active="request()->routeIs('profil')">
+                    {{ __('Profil') }}
+                </x-nav-link>
+                <x-nav-link :href="route('warta')" :active="request()->routeIs('warta')">
+                    {{ __('Warta Kegiatan') }}
+                </x-nav-link>
+                <x-nav-link :href="route('jadwal-kegiatan')" :active="request()->routeIs('jadwal-kegiatan')">
+                    {{ __('Jadwal Kegiatan') }}
+                </x-nav-link>
+                <x-nav-link :href="route('tentang-kami')" :active="request()->routeIs('tentang-kami')">
+                    {{ __('Tentang Kami') }}
+                </x-nav-link>
+                <div>
+                    @if (Route::has('login'))
                     @auth
-                        <a href="{{ url('/dashboard') }}"
-                            class="block px-4 py-2 font-bold text-white capitalize">Dashboard</a>
+                    <a href="{{ url('/dashboard') }}"
+                        class="block px-4 py-2 font-bold text-white capitalize">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="block px-4 py-2 font-bold text-white capitalize">Log
-                            in</a>
+                    <a href="{{ route('login') }}" class="block px-4 py-2 font-bold text-white capitalize">Log
+                        in</a>
                     @endif
-                @endauth
+                    @endauth
+                </div>
             </div>
+
+
+
+        </div>
+        {{-- main --}}
+        <div x-intersect:enter="$el.classList.remove('-translate-y-full')"
+            x-intersect:leave="$el.classList.add('-translate-y-full')"
+            class="flex flex-col items-center pt-40 space-y-4 text-white transition-all duration-1000 transform">
+            <h1 class="text-5xl md:text-6xl text-warning">PKK Dunggala</h1>
+            <h2>Visi</h2>
+            <p>Terwujudnya keluarga yang beriman, bertaqwa kepada Tuhan Yang Maha Esa, berakhlak mulia dan berbudi
+                luhur,
+                sehat
+                sejahtera lahir dan batin.</p>
+            <h2 class="mt-2">Misi</h2>
+            <ul class="text-center">
+                <li>Meningkatkan pembentukan karakter keluarga melalui penghayatan, pengamalan pancasila, kegotong
+                    royongan serta kesetaraan
+                    dan keadilan gender.</li>
+                <li>Meningkatkan pendidikan dan ekonomi keluarga melalui berbagai upaya keterampilan dan pengembangan
+                    koperasi.</li>
+                <li>Meningkatkan Ketahanan Keluarga melalui pemenuhan pangan, sandang dan perumahan sehat dan layak
+                    huni.</li>
+                <li>Menigkatkan derajat kesehatan keluarga, kelestarian lingkungan hidup serta perencanaan sehat.</li>
+                <li>Meningkatkan pengelolaan Gerakan PKK meliputi kegiatan pengorganisasian dan peningkatan
+                    Sumber Daya Manusia</li>
+            </ul>
         </div>
 
 
-
-    </div>
-    {{-- main --}}
-    <div x-intersect:enter="$el.classList.remove('-translate-y-full')"
-        x-intersect:leave="$el.classList.add('-translate-y-full')"
-        class="flex flex-col items-center pt-40 space-y-4 text-white transition-all duration-1000 transform">
-        <h1 class="text-5xl md:text-6xl text-warning">PKK Dunggala</h1>
-        <p class="px-4 text-xl text-center md:w-1/2 md:px-0">Bersinergi dalam tim untuk membina kesejahteraan
-            keluarga.
-            Mewujudkan
-            keluarga yang
-            harmonis
-            dan
-            sejahtera untuk rakyat Indonesia yang lebih baik.</p>
-    </div>
-
-
-    {{-- end main --}}
+        {{-- end main --}}
     </div>
 
     {{-- profil --}}
-    <div class="px-12 pt-10 pb-32">
+    {{-- <div class="px-12 pt-10 pb-32">
         <div class="block py-10 text-center">
             <h1 class="inline text-2xl font-bold uppercase border-b-2 text-primary border-primary">Profil
             </h1>
@@ -159,7 +171,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- end profil --}}
 
     {{-- warta kegiatan --}}
@@ -171,16 +183,16 @@
         <div x-intersect:enter="$el.classList.remove('scale-x-0')" x-intersect:leave="$el.classList.add('scale-x-0')"
             class="flex flex-col space-y-4 transition-all duration-1000 transform md:space-y-0 md:flex-row md:space-x-4">
             @foreach ($wartas as $warta)
-                <a href="{{ route('warta.detail', $warta->id) }}"
-                    class="flex-col space-y-4 duration-200 transform bg-white shadow-xl md:w-1/3 hover:scale-105 rounded-xl">
-                    <img class="object-cover w-full h-60 rounded-t-xl" src="{{ asset('storage/' . $warta->gambar) }}"
-                        alt="warta">
-                    <div class="flex flex-col px-4 py-2 space-y-2">
-                        <h1 class="text-xl font-medium line-clamp-2 text-primary">{{ $warta->judul }}</h1>
-                        <p class="text-gray-700 line-clamp-3">{{ $warta->isi }}</p>
-                        <span class="text-sm text-default">{{ $warta->created_at->diffForHumans() }}</span>
-                    </div>
-                </a>
+            <a href="{{ route('warta.detail', $warta->id) }}"
+                class="flex-col space-y-4 duration-200 transform bg-white shadow-xl md:w-1/3 hover:scale-105 rounded-xl">
+                <img class="object-cover w-full h-60 rounded-t-xl" src="{{ asset('storage/' . $warta->gambar) }}"
+                    alt="warta">
+                <div class="flex flex-col px-4 py-2 space-y-2">
+                    <h1 class="text-xl font-medium line-clamp-2 text-primary">{{ $warta->judul }}</h1>
+                    <p class="text-gray-700 line-clamp-3">{{ $warta->isi }}</p>
+                    <span class="text-sm text-default">{{ $warta->created_at->diffForHumans() }}</span>
+                </div>
+            </a>
             @endforeach
         </div>
         <div class="mt-8 text-center">
@@ -193,51 +205,49 @@
     @if ($kegiatans)
 
 
-        <div class="pb-10 mt-10 md:px-40">
-            <div class="block py-10 text-center">
-                <h1 class="inline text-2xl font-bold uppercase border-b-2 text-primary border-primary">jadwal kegiatan
-                </h1>
-            </div>
-            <div x-intersect:enter="$el.classList.remove('scale-y-0')"
-                x-intersect:leave="$el.classList.add('scale-y-0')" class="transition-all duration-1000 transform">
+    <div class="pb-10 mt-10 md:px-40">
+        <div class="block py-10 text-center">
+            <h1 class="inline text-2xl font-bold uppercase border-b-2 text-primary border-primary">jadwal kegiatan
+            </h1>
+        </div>
+        <div x-intersect:enter="$el.classList.remove('scale-y-0')" x-intersect:leave="$el.classList.add('scale-y-0')"
+            class="transition-all duration-1000 transform">
 
-                @foreach ($kegiatans as $kegiatan)
-                    <div
-                        class="flex flex-col items-center justify-center space-y-2 md:space-y-0 md:grid md:grid-cols-12">
-                        <div class="flex flex-row px-4 space-x-2 md:px-0 md:col-span-12">
-                            <div class="relative md:mx-auto">
-                                <div class="flex items-center justify-center w-6 h-full">
-                                    <div class="w-1 h-full bg-gray-300 pointer-events-none"></div>
-                                </div>
-                                <div class="flex items-center justify-center">
-                                    <span
-                                        class="absolute w-3 h-3 p-1 bg-white rounded-full top-1 ring-4 ring-primary"></span>
-                                </div>
-                            </div>
-                            <div class="flex justify-start flex-1 mb-2">
-                                <div class="flex flex-row items-center w-full bg-white divide-y-0 lg:w-full card">
-                                    <div class="py-2 text-gray-500">
-                                        <h2 class="font-bold">
-                                            {{ date('d M Y', strtotime($kegiatan->tanggal)) }}
-                                        </h2>
-                                        <p class="font-medium">{{ $kegiatan->detail }} </p>
-                                    </div>
-
-                                </div>
-                            </div>
+            @foreach ($kegiatans as $kegiatan)
+            <div class="flex flex-col items-center justify-center space-y-2 md:space-y-0 md:grid md:grid-cols-12">
+                <div class="flex flex-row px-4 space-x-2 md:px-0 md:col-span-12">
+                    <div class="relative md:mx-auto">
+                        <div class="flex items-center justify-center w-6 h-full">
+                            <div class="w-1 h-full bg-gray-300 pointer-events-none"></div>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <span class="absolute w-3 h-3 p-1 bg-white rounded-full top-1 ring-4 ring-primary"></span>
                         </div>
                     </div>
-                @endforeach
+                    <div class="flex justify-start flex-1 mb-2">
+                        <div class="flex flex-row items-center w-full bg-white divide-y-0 lg:w-full card">
+                            <div class="py-2 text-gray-500">
+                                <h2 class="font-bold">
+                                    {{ date('d M Y', strtotime($kegiatan->tanggal)) }}
+                                </h2>
+                                <p class="font-medium">{{ $kegiatan->detail }} </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="mt-8 text-center">
-                <a href="{{ route('jadwal-kegiatan') }}" class="btn-primary">Selengkapnya</a>
-            </div>
-
-
-
-
+            @endforeach
         </div>
+
+        <div class="mt-8 text-center">
+            <a href="{{ route('jadwal-kegiatan') }}" class="btn-primary">Selengkapnya</a>
+        </div>
+
+
+
+
+    </div>
     @endif
     {{-- end jadwal kegiatan --}}
 
