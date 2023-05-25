@@ -8,6 +8,7 @@ use App\Http\Livewire\Dashboard\IndexDashboard;
 use App\Http\Livewire\DetailWarta;
 use App\Http\Livewire\Laporan\IndexLaporan;
 use App\Http\Livewire\Profil;
+use App\Http\Livewire\Profil\IndexProfil;
 use App\Http\Livewire\ProkerIndex;
 use App\Http\Livewire\Prokok;
 use App\Http\Livewire\Struktur;
@@ -63,6 +64,7 @@ Route::get('/tentang-kami', function () {
 })->name('tentang-kami');
 
 Route::get('/dashboard', IndexDashboard::class)->middleware(['auth'])->name('dashboard');
+Route::get('/profil-user', IndexProfil::class)->middleware(['auth'])->name('profil-user');
 
 Route::group(['middleware' => ['permission:olah user']], function () {
     Route::get('/user', function () {
