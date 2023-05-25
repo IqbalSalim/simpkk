@@ -88,16 +88,23 @@
                 </div>
             </div>
         </div>
+
         <div class="grid grid-cols-2 mt-4 gap-x-10">
             <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
                 <div class="p-6 text-gray-900 border rounded-lg dark:text-gray-100 border-primary-800">
                     <div class="col-span-3">
                         <label for="filter_keluarga" class="">Filter Grafik (Data Basis Keluarga)</label>
-                        <select wire:model='filter_keluarga' wire:change='updateChartKeluarga()' id="filter_keluarga"
-                            class="accent-secondary-500">
+                        <select wire:model.defer='filter_keluarga' wire:change='updateChartKeluarga()'
+                            id="filter_keluarga" class="accent-secondary-500">
                             <option value="">-- Pilih --</option>
                             <option value="jumlah_KK">Kepala Keluarga</option>
-                            <option value="pus">Pus</option>
+                            <option value="balita">Balita</option>
+                            <option value="pus">Pasangan Usia Subur</option>
+                            <option value="wus">Wanita Usia Subur</option>
+                            <option value="buta">Buta</option>
+                            <option value="ibu_hamil">Ibu Hamil</option>
+                            <option value="ibu_menyusui">Ibu Menyusui</option>
+                            <option value="lansia">Lansia</option>
                         </select>
                     </div>
                     <div class="col-span-1 mt-4 bg-white rounded-lg" style="height: 28rem;">
@@ -106,14 +113,34 @@
                     </div>
                 </div>
             </div>
+            <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
+                <div class="p-6 text-gray-900 border rounded-lg dark:text-gray-100 border-primary-800">
+                    <div class="col-span-3">
+                        <label for="filter_warga" class="">Filter Grafik (Data Basis Warga)</label>
+                        <select wire:model.defer='filter_warga' wire:change='updateChartWarga()' id="filter_warga"
+                            class="accent-secondary-500">
+                            <option value="">-- Pilih --</option>
+                            <option value="akseptor_kb">Jumlah Akseptor KB</option>
+                            <option value="kegiatan_posyandu">Mengikuti Kegiatan Posyandu</option>
+                            <option value="program_bkb">Program BKB</option>
+                            <option value="tabungan">Memiliki Tabungan</option>
+                            <option value="kelompok_belajar">Mengikuti Kelompok Belajar</option>
+                        </select>
+                    </div>
+                    <div class="col-span-1 mt-4 bg-white rounded-lg" style="height: 28rem;">
+                        <div id="warga">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="grid grid-cols-2 mt-4 gap-x-10">
+
+        </div>
+
     </div>
     @push('chart-script')
     <script>
-        window.addEventListener('name-updated', event => {
-        alert('Name updated to: ' + event.detail.newName);
-        })
-
         var options = {
         series: [{
         name: 'Inflation',
@@ -206,6 +233,104 @@
                 }
             })
         });
+
+        var options2 = {
+        series: [{
+        name: 'Inflation',
+        data: @js($data_count)
+        }],
+        chart: {
+        height: 350,
+        type: 'bar',
+        },
+        plotOptions: {
+        bar: {
+        borderRadius: 10,
+        dataLabels: {
+        position: 'top', // top, center, bottom
+        },
+        }
+        },
+        dataLabels: {
+        enabled: true,
+        offsetY: -20,
+        style: {
+        fontSize: '12px',
+        colors: ["#304758"]
+        }
+        },
+        
+        xaxis: {
+        categories: @js($data_dusun),
+        position: 'top',
+        axisBorder: {
+        show: false
+        },
+        axisTicks: {
+        show: false
+        },
+        crosshairs: {
+        fill: {
+        type: 'gradient',
+        gradient: {
+        colorFrom: '#D8E3F0',
+        colorTo: '#BED1E6',
+        opacityFrom: 0.4,
+        opacityTo: 0.5,
+        }
+        }
+        },
+        tooltip: {
+        enabled: true,
+        }
+        },
+        yaxis: {
+        axisBorder: {
+        show: false
+        },
+        axisTicks: {
+        show: false,
+        },
+        labels: {
+        show: false,
+        }
+        
+        },
+        title: {
+        text: @js($judul_warga),
+        floating: true,
+        offsetY: 330,
+        align: 'center',
+        style: {
+        color: '#444'
+        }
+        }
+        };
+
+        var chart2 = new ApexCharts(document.querySelector("#warga"), options2);
+        chart2.render();
+
+        window.addEventListener('updateChartSeriesWarga', event => {
+            chart2.updateOptions({
+                series:[
+                    {
+                        name: '',
+                        data: event.detail.data
+                    }
+                ],
+                xaxis: {
+                    categories: event.detail.kategori
+                },
+                title: {
+                    text: event.detail.judul
+                }
+            })
+        });
+
+        window.onload = (event) => {
+            window.livewire.emit('updateChartWarga');
+            window.livewire.emit('updateChartKeluarga');
+        };
     </script>
 
     @endpush
