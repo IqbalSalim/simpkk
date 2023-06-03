@@ -223,9 +223,7 @@
                     <select wire:model.defer='kelompok_belajar' name="kelompok_belajar" id="kelompok_belajar"
                         class="block w-full mt-1 text-sm capitalize border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
                         <option value="">-- Pilih --</option>
-                        <option value="Paket A">Paket A</option>
-                        <option value="Paket B">Paket B</option>
-                        <option value="Paket C">Paket C</option>
+                        <option value="Ya">Ya</option>
                         <option value="Tidak">Tidak</option>
                     </select>
                     <span class="text-sm text-danger">

@@ -44,7 +44,13 @@ class IndexLaporan extends Component
             sum(keluargas.buta) as buta,
             sum(keluargas.ibu_hamil) as ibu_hamil,
             sum(keluargas.ibu_menyusui) as ibu_menyusui,
-            sum(keluargas.lansia) as lansia
+            sum(keluargas.lansia) as lansia,
+            sum(Case When keluargas.jamban_keluarga = "Ya" then 1 Else 0 END) as jamban,
+            sum(Case When keluargas.pembuangan_sampah = "Ya" then 1 Else 0 END) as sampah,
+            sum(Case When keluargas.pembuangan_air_limbah = "Ya" then 1 Else 0 END) as limbah,
+            sum(Case When keluargas.stiker_pkk = "Ya" then 1 Else 0 END) as stiker,
+            sum(Case When keluargas.up2k = "Ya" then 1 Else 0 END) as up2k,
+            sum(Case When keluargas.usaha_kesehatan_lingkungan = "Ya" then 1 Else 0 END) as kesling
             ')->groupBy('data_penduduk.dusun')->get();
 
         $dusuns = DataPenduduk::select('dusun')->groupBy('dusun')->get();
@@ -62,6 +68,10 @@ class IndexLaporan extends Component
                     ->where('data_penduduk.dusun', $dusun->dusun)->where('wargas.tabungan', 'Ya')->count(),
                 'kelompok_belajar' => DataPenduduk::join('wargas', 'wargas.nik', '=', 'data_penduduk.NIK')
                     ->where('data_penduduk.dusun', $dusun->dusun)->where('wargas.kelompok_belajar', 'Ya')->count(),
+                'paud' => DataPenduduk::join('wargas', 'wargas.nik', '=', 'data_penduduk.NIK')
+                    ->where('data_penduduk.dusun', $dusun->dusun)->where('wargas.paud', 'Ya')->count(),
+                'kegiatan_koperasi' => DataPenduduk::join('wargas', 'wargas.nik', '=', 'data_penduduk.NIK')
+                    ->where('data_penduduk.dusun', $dusun->dusun)->where('wargas.kegiatan_koperasi', 'Ya')->count(),
             ];
         }
 

@@ -52,6 +52,30 @@
                                 class="px-2 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase md:px-6">
                                 Lansia
                             </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                Mempunyai Jamban Keluarga
+                            </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                Mempunyai Tempat Pembuangan Sampah
+                            </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                Mempunyai Saluran Pembuangan Air Limbah
+                            </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                Menempel Stiker PKK
+                            </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                Aktivitas UP2K
+                            </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                Aktivitas Kegiatan Usaha Kesehatan Lingkungan
+                            </th>
                         </tr>
                     </thead>
 
@@ -66,6 +90,12 @@
                         $ibu_hamil = 0;
                         $ibu_menyusui = 0;
                         $lansia = 0;
+                        $jamban = 0;
+                        $sampah = 0;
+                        $limbah = 0;
+                        $stiker = 0;
+                        $up2k = 0;
+                        $kesling = 0;
                         @endphp
                         @foreach ($keluargas as $row)
                         <tr>
@@ -96,6 +126,24 @@
                             <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
                                 {{ $row->lansia == null ? 0 : $row->lansia }}
                             </td>
+                            <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
+                                {{ $row->jamban == null ? 0 : $row->jamban }}
+                            </td>
+                            <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
+                                {{ $row->sampah == null ? 0 : $row->sampah }}
+                            </td>
+                            <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
+                                {{ $row->limbah == null ? 0 : $row->limbah }}
+                            </td>
+                            <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
+                                {{ $row->stiker == null ? 0 : $row->stiker }}
+                            </td>
+                            <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
+                                {{ $row->up2k == null ? 0 : $row->up2k }}
+                            </td>
+                            <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
+                                {{ $row->kesling == null ? 0 : $row->kesling }}
+                            </td>
                         </tr>
                         @php
                         $jumlah_KK = $jumlah_KK + $row->jumlah_KK;
@@ -106,6 +154,12 @@
                         $ibu_hamil = $ibu_hamil + $row->ibu_hamil;
                         $ibu_menyusui = $ibu_menyusui + $row->ibu_menyusui;
                         $lansia = $lansia + $row->lansia;
+                        $jamban = $jamban + $row->jamban;
+                        $sampah = $sampah + $row->sampah;
+                        $limbah = $limbah + $row->limbah;
+                        $stiker = $stiker + $row->stiker;
+                        $up2k = $up2k + $row->up2k;
+                        $kesling = $kesling + $row->kesling;
                         @endphp
                         @endforeach
                         <!-- More people... -->
@@ -147,6 +201,30 @@
                             <th scope="col"
                                 class="px-2 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase md:px-6">
                                 {{ $lansia }}
+                            </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                {{ $jamban }}
+                            </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                {{ $sampah }}
+                            </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                {{ $limbah }}
+                            </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                {{ $stiker }}
+                            </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                {{ $up2k }}
+                            </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                {{ $kesling }}
                             </th>
                         </tr>
                     </tfoot>
@@ -191,6 +269,14 @@
                                 class="px-2 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase md:px-6">
                                 Mengikuti Kelompok Belajar
                             </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                Mengikuti PAUD / Sejenis
+                            </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                Ikut Dalam Kegiatan Koperasi
+                            </th>
                         </tr>
                     </thead>
 
@@ -202,6 +288,8 @@
                         $program_bkb = 0;
                         $tabungan = 0;
                         $kelompok_belajar = 0;
+                        $paud = 0;
+                        $kegiatan_koperasi = 0;
                         @endphp
                         @foreach ($wargas as $row)
                         <tr>
@@ -223,6 +311,12 @@
                             <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
                                 {{ $row['kelompok_belajar']== null ? 0 : $row['kelompok_belajar'] }}
                             </td>
+                            <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
+                                {{ $row['paud']== null ? 0 : $row['paud'] }}
+                            </td>
+                            <td class="px-4 py-3 text-sm text-gray-500 md:px-6 whitespace-nowrap">
+                                {{ $row['kegiatan_koperasi']== null ? 0 : $row['kegiatan_koperasi'] }}
+                            </td>
                         </tr>
                         @php
                         $akseptor_kb = $akseptor_kb + $row['akseptor_kb'];
@@ -230,6 +324,8 @@
                         $program_bkb = $program_bkb + $row['program_bkb'];
                         $tabungan = $tabungan + $row['tabungan'];
                         $kelompok_belajar = $kelompok_belajar + $row['kelompok_belajar'];
+                        $paud = $paud + $row['paud'];
+                        $kegiatan_koperasi = $kegiatan_koperasi + $row['kegiatan_koperasi'];
                         @endphp
                         @endforeach
                         <!-- More people... -->
@@ -259,6 +355,14 @@
                             <th scope="col"
                                 class="px-2 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase md:px-6">
                                 {{ $kelompok_belajar }}
+                            </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                {{ $paud }}
+                            </th>
+                            <th scope="col"
+                                class="px-2 py-3 text-xs font-bold tracking-wider text-left text-gray-500 uppercase md:px-6">
+                                {{ $kegiatan_koperasi }}
                             </th>
                         </tr>
                     </tfoot>

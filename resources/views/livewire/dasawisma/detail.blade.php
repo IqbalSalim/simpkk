@@ -7,8 +7,9 @@
     <div class="px-4 py-2 mt-4 bg-white divide-y-2 divide-gray-200 rounded-lg shadow-lg">
         <div class="flex flex-row py-2 space-x-4">
         </div>
-        <div class="py-2">
+        <div class="flex flex-row justify-between py-2">
             <a href="{{route('dasawisma') }}" type="button" class="text-sm btn-danger">Kembali</a>
+            <butto onclick="window.print();return false;" class="text-sm btn-primary">Cetak</butto>
         </div>
         <div>
             <div class="w-full overflow-x-auto">
