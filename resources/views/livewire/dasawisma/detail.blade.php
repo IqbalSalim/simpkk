@@ -9,7 +9,7 @@
         </div>
         <div class="flex flex-row justify-between py-2">
             <a href="{{route('dasawisma') }}" type="button" class="text-sm btn-danger">Kembali</a>
-            <butto onclick="window.print();return false;" class="text-sm btn-primary">Cetak</butto>
+            <button onclick="window.print();return false;" class="text-sm btn-primary">Cetak</button>
         </div>
         <div>
             <div class="w-full overflow-x-auto">
